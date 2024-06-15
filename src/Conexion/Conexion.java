@@ -18,7 +18,7 @@ public class Conexion {
 
     private static Connection connection;
 
-    public Connection GetConnection() {
+    public static Connection GetConnection() {
         try {
 
             connection = DriverManager.getConnection(URL, USER, PASSWORD);

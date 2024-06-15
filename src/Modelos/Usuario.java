@@ -12,18 +12,29 @@ public class Usuario {
 
     private int idUsuario;
     private String nombreUsuario;
+    private String usuario;
+
     private String contrasena;
     private String rol;
 
-    public Usuario(int idUsuario, String nombreUsuario, String contrasena, String rol) {
+    public Usuario(int idUsuario, String nombreUsuario, String usuario, String contrasena, String rol) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
+        this.usuario = usuario;
         this.contrasena = contrasena;
         this.rol = rol;
     }
 
     public Usuario() {
 
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public int getIdUsuario() {

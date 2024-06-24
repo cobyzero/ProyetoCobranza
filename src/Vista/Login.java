@@ -15,7 +15,6 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        logo = new javax.swing.JLabel();
         logoname = new javax.swing.JLabel();
         citybg = new javax.swing.JLabel();
         header = new javax.swing.JPanel();
@@ -31,25 +30,26 @@ public class Login extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         loginBtn = new javax.swing.JPanel();
         loginBtnTxt = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        logo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/logo.png"))); // NOI18N
-        bg.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 290, 140));
 
         logoname.setBackground(new java.awt.Color(255, 255, 255));
         logoname.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         logoname.setForeground(new java.awt.Color(255, 255, 255));
         logoname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         logoname.setText("Ponlo el nombre q sea");
-        bg.add(logoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(554, 250, 290, 20));
+        bg.add(logoname, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 290, 20));
 
         citybg.setBackground(new java.awt.Color(0, 134, 190));
         citybg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/city.png"))); // NOI18N
@@ -103,14 +103,14 @@ public class Login extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 800, Short.MAX_VALUE))
+                .addGap(0, 350, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 40));
+        bg.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 40));
 
         favicon.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
         favicon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/images/favicon.png"))); // NOI18N
@@ -186,17 +186,18 @@ public class Login extends javax.swing.JFrame {
         );
 
         bg.add(loginBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 130, 40));
+        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 130, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo.png"))); // NOI18N
+        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/city.png"))); // NOI18N
+        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, -20, -1, 540));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/favicon.png"))); // NOI18N
+        bg.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -303,11 +304,14 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel exitTxt;
     private javax.swing.JLabel favicon;
     private javax.swing.JPanel header;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPanel loginBtn;
     private javax.swing.JLabel loginBtnTxt;
-    private javax.swing.JLabel logo;
     private javax.swing.JLabel logoname;
     private javax.swing.JLabel passLabel;
     private javax.swing.JPasswordField passTxt;

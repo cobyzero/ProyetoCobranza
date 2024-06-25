@@ -7,6 +7,7 @@ package AccesoDatos;
 import Conexion.Conexion;
 import Modelos.Usuario;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.sql.*;
  */
 public class DAO_Usuarios {
 
-    public static Usuario Login(String usuario, String contrasena) {
+    public  Usuario Login(String usuario, String contrasena) {
 
         try {
             var connection = Conexion.GetConnection();
@@ -35,12 +36,15 @@ public class DAO_Usuarios {
                         query.getString("PASSWORD"),
                         query.getString("ROL")
                 );
-
+                JOptionPane.showMessageDialog(null, "Autenticado correctamente");
                 return us;
             }
+            JOptionPane.showMessageDialog(null, "Usuario incorrecto");
 
             return null;
         } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error");
+
             return null;
         }
 

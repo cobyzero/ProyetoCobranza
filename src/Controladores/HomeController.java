@@ -4,6 +4,7 @@
  */
 package Controladores;
 
+import Modelos.Usuario;
 import Vistas.AgregarClienteFrame;
 import Vistas.HomeView;
 import java.awt.event.ActionEvent;
@@ -15,9 +16,11 @@ import java.awt.event.ActionListener;
  */
 public class HomeController implements ActionListener {
     private final HomeView homeView;
+    private Usuario usuario;
     
-    public HomeController(HomeView _homeView){
+    public HomeController(HomeView _homeView, Usuario _usuario){
         this.homeView = _homeView;
+        this.usuario = _usuario;
         homeView.setLocationRelativeTo(homeView);
         homeView.setVisible(true);
         homeView.btnAgregarCliente.addActionListener(this);

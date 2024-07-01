@@ -4,17 +4,70 @@
  */
 package Vistas;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author edyne
  */
 public class AgregarClienteFrame extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form AgregarClienteFrame
-     */
+   
+    private JTextField nombreField;
+    private JTextField apellidoField;
+    private JTextField direccionField;
+    private JTextField telefonoField;
+    private JTextField emailField;
+    private JTextField ciudadField;
+    private JTextField estadoField;
+    private JTextField codigoPostalField;
+
+    private JButton guardarButton;
+    private JButton cancelarButton;
+    private JButton limpiarButton;
+    private JButton salirButton;
     public AgregarClienteFrame() {
         initComponents();
+         nombreField = new JTextField();
+        apellidoField = new JTextField();
+        direccionField = new JTextField();
+        telefonoField = new JTextField();
+        emailField = new JTextField();
+        ciudadField = new JTextField();
+        estadoField = new JTextField();
+        codigoPostalField = new JTextField();
+
+        guardarButton = new JButton("Guardar");
+        cancelarButton = new JButton("Cancelar");
+        limpiarButton = new JButton("Limpiar");
+        salirButton = new JButton("Salir");
+
+        // Aquí agregas los componentes al frame, usando el layout que prefieras
+        setLayout(new java.awt.GridLayout(9, 2)); // Por ejemplo, un GridLayout de 9 filas y 2 columnas
+
+        add(new JLabel("Nombre:"));
+        add(nombreField);
+        add(new JLabel("Apellido:"));
+        add(apellidoField);
+        add(new JLabel("Dirección:"));
+        add(direccionField);
+        add(new JLabel("Teléfono:"));
+        add(telefonoField);
+        add(new JLabel("Email:"));
+        add(emailField);
+        add(new JLabel("Ciudad:"));
+        add(ciudadField);
+        add(new JLabel("Estado:"));
+        add(estadoField);
+        add(new JLabel("Código Postal:"));
+        add(codigoPostalField);
+
+        add(guardarButton);
+        add(cancelarButton);
+        add(limpiarButton);
+        add(salirButton);
     }
 
     /**

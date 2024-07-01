@@ -4,15 +4,15 @@
  */
 package Principal;
 
-import Controladores.HomeController;
-import Vistas.HomeView;
-
+ import Controladores.LoginController;
+import Vista.Login;
+ 
 /**
  *
  * @author edyne
  */
 public class Principal {
     public static void main(String[] args) {
-        HomeController homeController = new HomeController(new HomeView());
+        LoginController loginController = new LoginController(new Login());
     }
 }

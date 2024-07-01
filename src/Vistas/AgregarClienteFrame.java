@@ -7,6 +7,12 @@ package Vistas;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import Conexion.Conexion;
 
 /**
  *
@@ -68,7 +74,112 @@ public class AgregarClienteFrame extends javax.swing.JInternalFrame {
         add(cancelarButton);
         add(limpiarButton);
         add(salirButton);
+        guardarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                guardarCliente();
+            }
+        });
+
+        cancelarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cancelar();
+            }
+        });
+
+        limpiarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarCampos();
+            }
+        });
+
+        salirButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                salir();
+            }
+        });
     }
+
+    @SuppressWarnings("unchecked")
+    private void initComponents() {
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agregar Cliente");
+
+        pack();
+    }
+
+    // Método para guardar cliente
+    private void guardarCliente() {
+        String nombre = nombreField.getText();
+        String apellido = apellidoField.getText();
+        String direccion = direccionField.getText();
+        String telefono = telefonoField.getText();
+        String email = emailField.getText();
+        String ciudad = ciudadField.getText();
+        String estado = estadoField.getText();
+        String codigoPostal = codigoPostalField.getText();
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = Conexion.GetConnection();
+            if (conn != null) {
+                String sql = "INSERT INTO clientes (nombre, apellido, direccion, telefono, email, ciudad, estado, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                stmt = conn.prepareStatement(sql);
+                stmt.setString(1, nombre);
+                stmt.setString(2, apellido);
+                stmt.setString(3, direccion);
+                stmt.setString(4, telefono);
+                stmt.setString(5, email);
+                stmt.setString(6, ciudad);
+                stmt.setString(7, estado);
+                stmt.setString(8, codigoPostal);
+
+                stmt.executeUpdate();
+                System.out.println("Cliente guardado: " + nombre + " " + apellido);
+            } else {
+                System.out.println("Error de conexión a la base de datos");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    // Método para cancelar la operación
+    private void cancelar() {
+        System.out.println("Operación cancelada");
+    }
+
+    // Método para limpiar los campos del formulario
+    private void limpiarCampos() {
+        nombreField.setText("");
+        apellidoField.setText("");
+        direccionField.setText("");
+        telefonoField.setText("");
+        emailField.setText("");
+        ciudadField.setText("");
+        estadoField.setText("");
+        codigoPostalField.setText("");
+    }
+
+    // Método para cerrar el frame
+    private void salir() {
+        dispose();
+    }
+}
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

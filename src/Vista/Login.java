@@ -171,7 +171,7 @@ public class Login extends javax.swing.JFrame {
         });
         bg.add(userTxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 410, 30));
 
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

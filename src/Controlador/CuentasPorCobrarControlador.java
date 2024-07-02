@@ -69,21 +69,23 @@ public class CuentasPorCobrarControlador implements ActionListener {
             }
         }//fin consultar
         if (e.getSource() == vista.btnActualizar) {
-            //  DTOcategoria cat = ProcesosCategorias.LeerCat(vista);
-            //  dao.ActualizarCat(cat);
-            //  ProcesosCategorias.LimpiarEntradas(vista);
-            //  Mensajes.MostrarTexto("Datos actualizados!!!!!");
-            //  ProcesosCategorias.MostrarEnTabla(vista, dao.ListarCat());
+
+            CuentaPorCobrar cat = ProcesosCuentasPorCobrar.LeerCuentaPorCobrar(vista, dao_clientes.ListarClientes());
+            cat.setIdCuenta(idCuenta);
+            dao.ActualizarCuentaPorCobrar(cat);
+            ProcesosCuentasPorCobrar.LimpiarEntradas(vista);
+            Mensajes.MostrarTexto("Datos actualizados!!!!!");
+            ProcesosCuentasPorCobrar.MostrarEnTabla(vista, dao.ListarCuentaPorCobrar());
         }//fin actualizar
         if (e.getSource() == vista.btnEliminar) {
-            // int resp = Mensajes.Preguntar("Confirmar!!!!",
-            //         "Desea eliminar el ID " + idcat + " ? ");
-            // if (resp == 0) {// elijo OK
-            //     dao.EliminarCat(idcat);
-            //      ProcesosCategorias.LimpiarEntradas(vista);
-            //      Mensajes.MostrarTexto("Registro eliminado!!!!!");
-            //      ProcesosCategorias.MostrarEnTabla(vista, dao.ListarCat());
-            //  }
+            int resp = Mensajes.Preguntar("Confirmar!!!!",
+                    "Desea eliminar el ID " + idCuenta + " ? ");
+            if (resp == 0) {// elijo OK
+                dao.EliminarCuentaPorCobrar(idCuenta);
+                ProcesosCuentasPorCobrar.LimpiarEntradas(vista);
+                Mensajes.MostrarTexto("Registro eliminado!!!!!");
+                ProcesosCuentasPorCobrar.MostrarEnTabla(vista, dao.ListarCuentaPorCobrar());
+            }
         }
     }
 

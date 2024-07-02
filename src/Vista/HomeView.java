@@ -17,6 +17,9 @@ public class HomeView extends javax.swing.JFrame {
      */
     public HomeView() {
         initComponents();
+         setTitle("Agregar Clientes");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**

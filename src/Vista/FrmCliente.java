@@ -1,6 +1,5 @@
 package Vista;
 
-
 import Configuracion.Conexion;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -11,15 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+public class FrmCliente extends javax.swing.JInternalFrame {
 
-
-
-public class aaaaa extends javax.swing.JInternalFrame {
-
-     
-    public aaaaa() {
+    public FrmCliente() {
         initComponents();
-       
 
         // Aquí agregas los componentes al frame, usando el layout que prefieras
         setLayout(new java.awt.GridLayout(9, 2)); // Por ejemplo, un GridLayout de 9 filas y 2 columnas
@@ -72,8 +66,11 @@ public class aaaaa extends javax.swing.JInternalFrame {
                 salir();
             }
         });
+        
+        
     }
- private void guardarCliente() {
+
+    private void guardarCliente() {
         String nombre = nombreFieldd1.getText();
         String apellido = apellidoFieldd.getText();
         String direccion = direccionFieldd.getText();
@@ -109,8 +106,12 @@ public class aaaaa extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         } finally {
             try {
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
@@ -138,6 +139,7 @@ public class aaaaa extends javax.swing.JInternalFrame {
     private void salir() {
         dispose();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,7 +187,6 @@ public class aaaaa extends javax.swing.JInternalFrame {
         getContentPane().add(nombreFieldd8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidoFieldd;

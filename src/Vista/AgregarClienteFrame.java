@@ -35,7 +35,7 @@ public class AgregarClienteFrame extends javax.swing.JInternalFrame {
     public JButton limpiarButton;
     public JButton salirButton;
     public AgregarClienteFrame() {
-        
+       
         nombreField = new JTextField();
         apellidoField = new JTextField();
         direccionField = new JTextField();

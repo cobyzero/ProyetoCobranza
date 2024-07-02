@@ -21,6 +21,11 @@ public class DAO_CuentasPorCobrar implements InterfaceCuentasPorCobrar {
     @Override
     public void AgregarCuentaPorCobrar(CuentaPorCobrar cuenta) {
 
+        if (this.ExisteClienteConCuentaDeCobro(cuenta.getIdCliente())) {
+            Mensajes.MostrarTexto("El cliente ya tiene una cuenta de cobro");
+            return;
+        }
+
         String sql = "INSERT INTO cuentas_por_cobrar (ID_CLIENTE, MONTO, FECHA_EMISION, FECHA_VENCIMIENTO, ESTADO) VALUES ( ?, ?, ?, ?, ?)";
 
         try (Connection conn = Conexion.HacerConexion(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -37,7 +42,20 @@ public class DAO_CuentasPorCobrar implements InterfaceCuentasPorCobrar {
 
     @Override
     public void ActualizarCuentaPorCobrar(CuentaPorCobrar cat) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            Connection con = Conexion.HacerConexion();
+            PreparedStatement st = con.prepareStatement(
+                    "update cuentas_por_cobrar set MONTO=?, FECHA_EMISION=?, FECHA_VENCIMIENTO=?, ESTADO=? where ID_CUENTA=?;");
+            st.setBigDecimal(1, BigDecimal.valueOf(cat.getMonto()));
+            st.setDate(2, Date.valueOf(cat.getFechaEmision()));
+            st.setDate(3, Date.valueOf(cat.getFechaVencimiento()));
+            st.setString(4, cat.getEstado());
+
+            st.setInt(5, cat.getIdCuenta());
+            st.executeUpdate();
+        } catch (Exception ex) {
+            Mensajes.MostrarTexto("ERROR: no se puede actualizar.." + ex);
+        }
     }
 
     @Override
@@ -69,7 +87,15 @@ public class DAO_CuentasPorCobrar implements InterfaceCuentasPorCobrar {
 
     @Override
     public void EliminarCuentaPorCobrar(int idcat) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+            Connection con = Conexion.HacerConexion();
+            PreparedStatement ps = con.prepareStatement(
+                    "update cuentas_por_cobrar set estado='INACTIVO' where id_cuenta=?;");
+            ps.setInt(1, idcat);
+            ps.executeUpdate();
+        } catch (Exception ex) {
+            Mensajes.MostrarTexto("ERROR no se puede eliminar " + ex);
+        }
     }
 
     @Override
@@ -94,6 +120,22 @@ public class DAO_CuentasPorCobrar implements InterfaceCuentasPorCobrar {
             Mensajes.MostrarTexto("ERROR no se puede recuperar..." + ex);
         }
         return Lista;
+    }
+
+    @Override
+    public boolean ExisteClienteConCuentaDeCobro(int idCliente) {
+        try {
+            Connection con = Conexion.HacerConexion();
+            PreparedStatement ps = con.prepareStatement(
+                    "select * from cuentas_por_cobrar where ID_CLIENTE=?;");
+            ps.setInt(1, idCliente);
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException ex) {
+            Mensajes.MostrarTexto("ERROR no se puede recuperar"
+                    + " cuenta por cobrar " + ex);
+        }
+        return false;
     }
 
 }

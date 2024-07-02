@@ -22,4 +22,6 @@ public interface InterfaceCuentasPorCobrar {
     public void EliminarCuentaPorCobrar(int idcat);
 
     public ArrayList<CuentaPorCobrar> ListarCuentaPorCobrar();
+    
+    public boolean ExisteClienteConCuentaDeCobro(int idCliente);
 }

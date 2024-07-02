@@ -2,20 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelos;
+package Modelo;
 
 /**
  *
  * @author edyne
  */
-import java.util.Date;
-
 public class CuentaPorCobrar {
 
     private int idCuenta;
     private int idCliente;
-    private Date fechaEmision;
-    private Date fechaVencimiento;
+    private String fechaEmision;
+    private String fechaVencimiento;
     private double monto;
     private String estado;
 
@@ -23,8 +21,13 @@ public class CuentaPorCobrar {
     public CuentaPorCobrar() {
     }
 
+    public Object[] Registro(int num) {
+        Object fila[] = {idCliente, monto, fechaEmision, fechaVencimiento, estado};
+        return fila;
+    }
+
     // Constructor con parámetros
-    public CuentaPorCobrar(int idCuenta, int idCliente, Date fechaEmision, Date fechaVencimiento, double monto, String estado) {
+    public CuentaPorCobrar(int idCuenta, int idCliente, String fechaEmision, String fechaVencimiento, double monto, String estado) {
         this.idCuenta = idCuenta;
         this.idCliente = idCliente;
         this.fechaEmision = fechaEmision;
@@ -33,7 +36,6 @@ public class CuentaPorCobrar {
         this.estado = estado;
     }
 
-    // Getters y Setters
     public int getIdCuenta() {
         return idCuenta;
     }
@@ -50,19 +52,19 @@ public class CuentaPorCobrar {
         this.idCliente = idCliente;
     }
 
-    public Date getFechaEmision() {
+    public String getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
+    public void setFechaEmision(String fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 
-    public Date getFechaVencimiento() {
+    public String getFechaVencimiento() {
         return fechaVencimiento;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
+    public void setFechaVencimiento(String fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
 
@@ -85,7 +87,6 @@ public class CuentaPorCobrar {
     @Override
     public String toString() {
         return "CuentaPorCobrar{"
-                + "idCuenta=" + idCuenta
                 + ", idCliente=" + idCliente
                 + ", fechaEmision=" + fechaEmision
                 + ", fechaVencimiento=" + fechaVencimiento

@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controladores;
+package Controlador;
 
 import AccesoDatos.DAO_Usuarios;
 import Vista.Login;
-import Vistas.HomeView;
+import Vista.HomeView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package Vistas;
+package Vista;
 
+import Configuracion.Conexion;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -12,8 +13,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import Conexion.Conexion;
-
+ 
 /**
  *
  * @author edyne
@@ -121,7 +121,7 @@ public class AgregarClienteFrame extends javax.swing.JInternalFrame {
         PreparedStatement stmt = null;
 
         try {
-            conn = Conexion.GetConnection();
+            conn = Conexion.HacerConexion();
             if (conn != null) {
                 String sql = "INSERT INTO clientes (nombre, apellido, direccion, telefono, email, ciudad, estado, codigo_postal) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 stmt = conn.prepareStatement(sql);

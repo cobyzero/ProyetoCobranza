@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vistas;
+package Vista;
 
 /**
  *
@@ -29,9 +29,8 @@ public class HomeView extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        btnAgregarCliente = new javax.swing.JMenuItem();
-        btbListarClientes = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        btnClientes = new javax.swing.JMenuItem();
+        btnCuentasPorCobrar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,23 +45,20 @@ public class HomeView extends javax.swing.JFrame {
             .addGap(0, 463, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Clientes");
+        jMenu1.setText("Mantenimiento");
 
-        btnAgregarCliente.setText("Agregar Cliente");
-        jMenu1.add(btnAgregarCliente);
+        btnClientes.setText("Clientes");
+        jMenu1.add(btnClientes);
 
-        btbListarClientes.setText("Listar Clientes");
-        btbListarClientes.addActionListener(new java.awt.event.ActionListener() {
+        btnCuentasPorCobrar.setText("Cuentas Por Cobrar");
+        btnCuentasPorCobrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btbListarClientesActionPerformed(evt);
+                btnCuentasPorCobrarActionPerformed(evt);
             }
         });
-        jMenu1.add(btbListarClientes);
+        jMenu1.add(btnCuentasPorCobrar);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Cuentas de Cobranza");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -80,9 +76,9 @@ public class HomeView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btbListarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbListarClientesActionPerformed
+    private void btnCuentasPorCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentasPorCobrarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btbListarClientesActionPerformed
+    }//GEN-LAST:event_btnCuentasPorCobrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,11 +116,10 @@ public class HomeView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JMenuItem btbListarClientes;
-    public javax.swing.JMenuItem btnAgregarCliente;
+    public javax.swing.JMenuItem btnClientes;
+    public javax.swing.JMenuItem btnCuentasPorCobrar;
     public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

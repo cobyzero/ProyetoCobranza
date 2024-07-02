@@ -53,6 +53,11 @@ public class HomeView extends javax.swing.JFrame {
         jMenu1.setText("Mantenimiento");
 
         btnClientes.setText("Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
         jMenu1.add(btnClientes);
 
         btnCuentasPorCobrar.setText("Cuentas Por Cobrar");
@@ -83,9 +88,13 @@ public class HomeView extends javax.swing.JFrame {
 
     private void btnCuentasPorCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentasPorCobrarActionPerformed
          
-         AgregarClienteFrame agregarclientes = new AgregarClienteFrame();
-        agregarclientes.setVisible(true);
+         
     }//GEN-LAST:event_btnCuentasPorCobrarActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+        AgregarClienteFrame agregarclientes = new AgregarClienteFrame();
+        agregarclientes.setVisible(true);
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments

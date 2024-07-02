@@ -21,19 +21,19 @@ import java.sql.SQLException;
 public class AgregarClienteFrame extends javax.swing.JInternalFrame {
 
    
-    private JTextField nombreField;
-    private JTextField apellidoField;
-    private JTextField direccionField;
-    private JTextField telefonoField;
-    private JTextField emailField;
-    private JTextField ciudadField;
-    private JTextField estadoField;
-    private JTextField codigoPostalField;
+    public JTextField nombreField;
+   public JTextField apellidoField;
+    public JTextField direccionField;
+    public JTextField telefonoField;
+    public JTextField emailField;
+    public JTextField ciudadField;
+    public JTextField estadoField;
+    public JTextField codigoPostalField;
 
-    private JButton guardarButton;
-    private JButton cancelarButton;
-    private JButton limpiarButton;
-    private JButton salirButton;
+    public JButton guardarButton;
+   public JButton cancelarButton;
+    public JButton limpiarButton;
+    public JButton salirButton;
     public AgregarClienteFrame() {
         
         nombreField = new JTextField();

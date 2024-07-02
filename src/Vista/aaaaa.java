@@ -16,81 +16,57 @@ import java.sql.SQLException;
 
 public class aaaaa extends javax.swing.JInternalFrame {
 
-     private JTextField nombreField;
-    private JTextField apellidoField;
-    private JTextField direccionField;
-    private JTextField telefonoField;
-    private JTextField emailField;
-    private JTextField ciudadField;
-    private JTextField estadoField;
-    private JTextField codigoPostalField;
-
-    private JButton guardarButton;
-    private JButton cancelarButton;
-    private JButton limpiarButton;
-    private JButton salirButton;
+     
     public aaaaa() {
         initComponents();
-        nombreField = new JTextField();
-        apellidoField = new JTextField();
-        direccionField = new JTextField();
-        telefonoField = new JTextField();
-        emailField = new JTextField();
-        ciudadField = new JTextField();
-        estadoField = new JTextField();
-        codigoPostalField = new JTextField();
-
-        guardarButton = new JButton("Guardar");
-        cancelarButton = new JButton("Cancelar");
-        limpiarButton = new JButton("Limpiar");
-        salirButton = new JButton("Salir");
+       
 
         // Aquí agregas los componentes al frame, usando el layout que prefieras
         setLayout(new java.awt.GridLayout(9, 2)); // Por ejemplo, un GridLayout de 9 filas y 2 columnas
 
         add(new JLabel("Nombre:"));
-        add(nombreField);
+        add(nombreFieldd1);
         add(new JLabel("Apellido:"));
-        add(apellidoField);
+        add(apellidoFieldd);
         add(new JLabel("Dirección:"));
-        add(direccionField);
+        add(direccionFieldd);
         add(new JLabel("Teléfono:"));
-        add(telefonoField);
+        add(telefonoFieldd);
         add(new JLabel("Email:"));
-        add(emailField);
+        add(emailFieldd);
         add(new JLabel("Ciudad:"));
-        add(ciudadField);
+        add(ciudadFieldd);
         add(new JLabel("Estado:"));
-        add(estadoField);
+        add(estadoFieldd);
         add(new JLabel("Código Postal:"));
-        add(codigoPostalField);
+        add(codigoPostalFieldd);
 
-        add(guardarButton);
-        add(cancelarButton);
-        add(limpiarButton);
-        add(salirButton);
-        guardarButton.addActionListener(new ActionListener() {
+        add(guardarButtonn);
+        add(cancelarButtonn);
+        add(limpiarButtonn);
+        add(salirButtonn);
+        guardarButtonn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 guardarCliente();
             }
         });
 
-        cancelarButton.addActionListener(new ActionListener() {
+        cancelarButtonn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cancelar();
             }
         });
 
-        limpiarButton.addActionListener(new ActionListener() {
+        limpiarButtonn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 limpiarCampos();
             }
         });
 
-        salirButton.addActionListener(new ActionListener() {
+        salirButtonn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 salir();
@@ -98,14 +74,14 @@ public class aaaaa extends javax.swing.JInternalFrame {
         });
     }
  private void guardarCliente() {
-        String nombre = nombreField.getText();
-        String apellido = apellidoField.getText();
-        String direccion = direccionField.getText();
-        String telefono = telefonoField.getText();
-        String email = emailField.getText();
-        String ciudad = ciudadField.getText();
-        String estado = estadoField.getText();
-        String codigoPostal = codigoPostalField.getText();
+        String nombre = nombreFieldd1.getText();
+        String apellido = apellidoFieldd.getText();
+        String direccion = direccionFieldd.getText();
+        String telefono = telefonoFieldd.getText();
+        String email = emailFieldd.getText();
+        String ciudad = ciudadFieldd.getText();
+        String estado = estadoFieldd.getText();
+        String codigoPostal = codigoPostalFieldd.getText();
 
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -148,14 +124,14 @@ public class aaaaa extends javax.swing.JInternalFrame {
 
     // Método para limpiar los campos del formulario
     private void limpiarCampos() {
-        nombreField.setText("");
-        apellidoField.setText("");
-        direccionField.setText("");
-        telefonoField.setText("");
-        emailField.setText("");
-        ciudadField.setText("");
-        estadoField.setText("");
-        codigoPostalField.setText("");
+        nombreFieldd1.setText("");
+        apellidoFieldd.setText("");
+        direccionFieldd.setText("");
+        telefonoFieldd.setText("");
+        emailFieldd.setText("");
+        ciudadFieldd.setText("");
+        estadoFieldd.setText("");
+        codigoPostalFieldd.setText("");
     }
 
     // Método para cerrar el frame
@@ -171,20 +147,59 @@ public class aaaaa extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        salirButtonn = new javax.swing.JButton();
+        guardarButtonn = new javax.swing.JButton();
+        cancelarButtonn = new javax.swing.JButton();
+        limpiarButtonn = new javax.swing.JButton();
+        codigoPostalFieldd = new javax.swing.JTextField();
+        nombreFieldd1 = new javax.swing.JTextField();
+        apellidoFieldd = new javax.swing.JTextField();
+        direccionFieldd = new javax.swing.JTextField();
+        telefonoFieldd = new javax.swing.JTextField();
+        emailFieldd = new javax.swing.JTextField();
+        ciudadFieldd = new javax.swing.JTextField();
+        estadoFieldd = new javax.swing.JTextField();
+        nombreFieldd8 = new javax.swing.JTextField();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        salirButtonn.setText("jButton1");
+        getContentPane().add(salirButtonn, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 130, 40));
+
+        guardarButtonn.setText("jButton1");
+        getContentPane().add(guardarButtonn, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 130, 40));
+
+        cancelarButtonn.setText("jButton1");
+        getContentPane().add(cancelarButtonn, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 130, 40));
+
+        limpiarButtonn.setText("jButton1");
+        getContentPane().add(limpiarButtonn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 130, 40));
+        getContentPane().add(codigoPostalFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 140, 30));
+        getContentPane().add(nombreFieldd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 140, 30));
+        getContentPane().add(apellidoFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 140, 30));
+        getContentPane().add(direccionFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 140, 30));
+        getContentPane().add(telefonoFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 140, 30));
+        getContentPane().add(emailFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 140, 30));
+        getContentPane().add(ciudadFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 140, 30));
+        getContentPane().add(estadoFieldd, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 140, 30));
+        getContentPane().add(nombreFieldd8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 140, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellidoFieldd;
+    private javax.swing.JButton cancelarButtonn;
+    private javax.swing.JTextField ciudadFieldd;
+    private javax.swing.JTextField codigoPostalFieldd;
+    private javax.swing.JTextField direccionFieldd;
+    private javax.swing.JTextField emailFieldd;
+    private javax.swing.JTextField estadoFieldd;
+    private javax.swing.JButton guardarButtonn;
+    private javax.swing.JButton limpiarButtonn;
+    private javax.swing.JTextField nombreFieldd1;
+    private javax.swing.JTextField nombreFieldd8;
+    private javax.swing.JButton salirButtonn;
+    private javax.swing.JTextField telefonoFieldd;
     // End of variables declaration//GEN-END:variables
 }

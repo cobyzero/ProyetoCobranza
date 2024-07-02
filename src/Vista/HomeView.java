@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author edyne
@@ -15,6 +17,9 @@ public class HomeView extends javax.swing.JFrame {
      */
     public HomeView() {
         initComponents();
+         setTitle("Agregar Clientes");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
@@ -70,14 +75,16 @@ public class HomeView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCuentasPorCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentasPorCobrarActionPerformed
-        // TODO add your handling code here:
+         
+         AgregarClienteFrame agregarclientes = new AgregarClienteFrame();
+        agregarclientes.setVisible(true);
     }//GEN-LAST:event_btnCuentasPorCobrarActionPerformed
 
     /**

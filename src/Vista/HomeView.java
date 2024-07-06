@@ -92,7 +92,7 @@ public class HomeView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCuentasPorCobrarActionPerformed
 
     private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
-        FrmCliente agregarclientes = new FrmCliente();
+        FrmClientes agregarclientes = new FrmClientes();
         agregarclientes.setVisible(true);
     }//GEN-LAST:event_btnClientesActionPerformed
 

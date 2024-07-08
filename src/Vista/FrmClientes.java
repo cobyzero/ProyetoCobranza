@@ -9,7 +9,9 @@ import Modelo.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;
 /**
  *
  * @author User901-DOCENTE
@@ -21,8 +23,37 @@ public class FrmClientes extends javax.swing.JInternalFrame {
      */
     public FrmClientes() {
         initComponents();
+        cargarTablaClientes();
     }
-
+public void cargarTablaClientes() {
+        DefaultTableModel modelo = (DefaultTableModel) tblDatos.getModel();
+        modelo.setRowCount(0); // Limpiar la tabla
+        try {
+            Connection conn = Conexion.HacerConexion();
+            if (conn != null) {
+                String sql = "SELECT * FROM CLIENTES";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                while (rs.next()) {
+                    modelo.addRow(new Object[]{
+                        rs.getString("nombre"),
+                        rs.getString("ruc"),
+                        rs.getString("direccion"),
+                        rs.getString("telefono"),
+                        rs.getString("email"),
+                        rs.getString("contacto")
+                    });
+                }
+                rs.close();
+                stmt.close();
+                conn.close();
+            } else {
+                System.out.println("Error de conexión a la base de datos");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
     public void ActualizarTablas() {
         try {
             Connection conn = Conexion.HacerConexion();
@@ -89,18 +120,33 @@ public class FrmClientes extends javax.swing.JInternalFrame {
         btnConsultar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultar.setText("CONSULTAR");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 150, 40));
 
         btnActualizar.setBackground(new java.awt.Color(51, 0, 153));
         btnActualizar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 150, 40));
 
         btnEliminar.setBackground(new java.awt.Color(51, 0, 153));
         btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 150, 40));
 
         btnAgregar.setBackground(new java.awt.Color(51, 0, 153));
@@ -221,6 +267,105 @@ public class FrmClientes extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+         int fila = tblDatos.getSelectedRow();
+        if (fila >= 0) {
+            txtNombre.setText(tblDatos.getValueAt(fila, 0).toString());
+            txtRuc.setText(tblDatos.getValueAt(fila, 1).toString());
+            txtDireccion.setText(tblDatos.getValueAt(fila, 2).toString());
+            txtTelefono.setText(tblDatos.getValueAt(fila, 3).toString());
+            txtCorreo.setText(tblDatos.getValueAt(fila, 4).toString());
+            txtContacto.setText(tblDatos.getValueAt(fila, 5).toString());
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un cliente de la tabla para consultar.");
+        }
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+       int fila = tblDatos.getSelectedRow();
+        if (fila >= 0) {
+            String nombre = txtNombre.getText();
+            String ruc = txtRuc.getText();
+            String direccion = txtDireccion.getText();
+            String telefono = txtTelefono.getText();
+            String email = txtCorreo.getText();
+            String contacto = txtContacto.getText();
+            Connection conn = null;
+            PreparedStatement stmt = null;
+            try {
+                conn = Conexion.HacerConexion();
+                if (conn != null) {
+                    String sql = "UPDATE clientes SET nombre = ?, direccion = ?, telefono = ?, email = ?, contacto = ? WHERE ruc = ?";
+                    stmt = conn.prepareStatement(sql);
+                    stmt.setString(1, nombre);
+                    stmt.setString(2, direccion);
+                    stmt.setString(3, telefono);
+                    stmt.setString(4, email);
+                    stmt.setString(5, contacto);
+                    stmt.setString(6, ruc);
+                    stmt.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Cliente actualizado: " + nombre + " " + ruc);
+                    cargarTablaClientes();
+                } else {
+                    System.out.println("Error de conexión a la base de datos");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                try {
+                    if (stmt != null) {
+                        stmt.close();
+                    }
+                    if (conn != null) {
+                        conn.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un cliente de la tabla para actualizar.");
+        }
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         int fila = tblDatos.getSelectedRow();
+        if (fila >= 0) {
+            String ruc = tblDatos.getValueAt(fila, 1).toString();
+            Connection conn = null;
+            PreparedStatement stmt = null;
+            try {
+                conn = Conexion.HacerConexion();
+                if (conn != null) {
+                    String sql = "DELETE FROM clientes WHERE ruc = ?";
+                    stmt = conn.prepareStatement(sql);
+                    stmt.setString(1, ruc);
+                    stmt.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Cliente eliminado.");
+                    cargarTablaClientes();
+                } else {
+                    System.out.println("Error de conexión a la base de datos");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                try {
+                    if (stmt != null) {
+                        stmt.close();
+                    }
+                    if (conn != null) {
+                        conn.close();
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Seleccione un cliente de la tabla para eliminar.");
+        }
+    
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,7 +1,5 @@
 package Vista;
 
-
-
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.*;
@@ -11,7 +9,7 @@ import java.awt.event.ActionListener;
  *
  * @author Pool
  */
-public class PreguntasFrecuentes extends javax.swing.JInternalFrame {
+public class PreguntasFrecuentes extends javax.swing.JFrame {
 
      private JTextArea txtPreguntasRespuestas;
     private JButton btnAnterior;

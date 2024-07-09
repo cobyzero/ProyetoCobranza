@@ -36,7 +36,8 @@ public class HomeView extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         btnClientes = new javax.swing.JMenuItem();
         btnCuentasPorCobrar = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        btnPreguntasFrecuentes = new javax.swing.JMenuItem();
+        btnHistorial = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,13 +70,16 @@ public class HomeView extends javax.swing.JFrame {
         });
         jMenu1.add(btnCuentasPorCobrar);
 
-        jMenuItem1.setText("Preguntas Frecuentes");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        btnPreguntasFrecuentes.setText("Preguntas Frecuentes");
+        btnPreguntasFrecuentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                btnPreguntasFrecuentesActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(btnPreguntasFrecuentes);
+
+        btnHistorial.setText("Historial");
+        jMenu1.add(btnHistorial);
 
         jMenuBar1.add(jMenu1);
 
@@ -105,10 +109,16 @@ public class HomeView extends javax.swing.JFrame {
         agregarclientes.setVisible(true);
     }//GEN-LAST:event_btnClientesActionPerformed
 
+<<<<<<< HEAD
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         PreguntaFrecuentessss prgfre = new PreguntaFrecuentessss();
         prgfre.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+=======
+    private void btnPreguntasFrecuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasFrecuentesActionPerformed
+      
+    }//GEN-LAST:event_btnPreguntasFrecuentesActionPerformed
+>>>>>>> 4e2d3b4d923014d7353fba221dbccfc722060394
 
     /**
      * @param args the command line arguments
@@ -148,9 +158,10 @@ public class HomeView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem btnClientes;
     public javax.swing.JMenuItem btnCuentasPorCobrar;
+    public javax.swing.JMenuItem btnHistorial;
+    public javax.swing.JMenuItem btnPreguntasFrecuentes;
     public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

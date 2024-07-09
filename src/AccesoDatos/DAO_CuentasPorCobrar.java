@@ -138,4 +138,32 @@ public class DAO_CuentasPorCobrar implements InterfaceCuentasPorCobrar {
         return false;
     }
 
+    @Override
+    public ArrayList<CuentaPorCobrar> FiltrarLista(double monto) {
+        ArrayList<CuentaPorCobrar> Lista = new ArrayList();
+        try {
+            Connection con = Conexion.HacerConexion();
+
+            PreparedStatement st = con.prepareStatement("select * from cuentas_por_cobrar where MONTO >= ?;");
+
+            st.setDouble(1, monto);
+            ResultSet rs = st.executeQuery();
+
+            while (rs.next()) {
+                CuentaPorCobrar cat = new CuentaPorCobrar();
+                cat.setIdCuenta(rs.getInt(1));
+                cat.setIdCliente(rs.getInt(2));
+                cat.setMonto(rs.getDouble(3));
+                cat.setFechaEmision(rs.getDate(4).toString());
+                cat.setFechaVencimiento(rs.getDate(5).toString());
+                cat.setEstado(rs.getString(6));
+                Lista.add(cat);
+            }//fin del while
+        } catch (Exception ex) {
+            Mensajes.MostrarTexto("ERROR no se puede recuperar..." + ex);
+        }
+        return Lista;
+
+    }
+
 }

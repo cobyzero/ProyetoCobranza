@@ -10,7 +10,7 @@ import Modelo.Cliente;
 import Modelo.CuentaPorCobrar;
 import Procesos.Mensajes;
 import Procesos.ProcesosCuentasPorCobrar;
-import Vista.FrmCuentasPorCobrar;
+import Vista.FrmRegistroPagos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -20,13 +20,13 @@ import java.awt.event.ActionListener;
  */
 public class CuentasPorCobrarControlador implements ActionListener {
 
-    private FrmCuentasPorCobrar vista;
+    private FrmRegistroPagos vista;
     private DAO_CuentasPorCobrar dao;
     private DAO_Clientes dao_clientes;
 
     private int idCuenta;
 
-    public CuentasPorCobrarControlador(FrmCuentasPorCobrar _vista) {
+    public CuentasPorCobrarControlador(FrmRegistroPagos _vista) {
         this.vista = _vista;
 
         dao = new DAO_CuentasPorCobrar();
@@ -56,13 +56,13 @@ public class CuentasPorCobrarControlador implements ActionListener {
             } else {
                 for (int i = 0; i < dao_clientes.ListarClientes().size(); i++) {
                     if (dao_clientes.ListarClientes().get(i).getIdCliente() == idCuenta) {
-                        vista.cbxCliente.setSelectedIndex(i);
+                        vista.cbxidcuenta.setSelectedIndex(i);
                     }
                 }
 
                 vista.txtMonto.setText(String.valueOf(cat.getMonto()));
-                vista.txtFechaEmision.setText(cat.getFechaEmision());
-                vista.txtFechaVencimiento.setText(cat.getFechaVencimiento());
+                vista.txtFechaPago.setText(cat.getFechaEmision());
+                vista.txtMetodoPago.setText(cat.getFechaVencimiento());
                 vista.chActivo.setSelected(cat.getEstado().equals("ACTIVO"));
 
                 vista.txtMonto.requestFocus();

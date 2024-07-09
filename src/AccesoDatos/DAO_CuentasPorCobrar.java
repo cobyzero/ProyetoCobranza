@@ -24,7 +24,7 @@ public class DAO_CuentasPorCobrar implements InterfaceCuentasPorCobrar {
         if (this.ExisteClienteConCuentaDeCobro(cuenta.getIdCliente())) {
             Mensajes.MostrarTexto("El cliente ya tiene una cuenta de cobro");
             return;
-        }
+        }   
 
         String sql = "INSERT INTO cuentas_por_cobrar (ID_CLIENTE, MONTO, FECHA_EMISION, FECHA_VENCIMIENTO, ESTADO) VALUES ( ?, ?, ?, ?, ?)";
 

@@ -6,7 +6,7 @@ package Procesos;
 
 import Modelo.Cliente;
 import Modelo.CuentaPorCobrar;
-import Vista.FrmCuentasPorCobrar;
+import Vista.FrmRegistroPagos;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,40 +16,40 @@ import javax.swing.table.DefaultTableModel;
  */
 public class ProcesosCuentasPorCobrar {
     
-    public static void Presentacion(FrmCuentasPorCobrar fi) {
+    public static void Presentacion(FrmRegistroPagos fi) {
         fi.setVisible(true);
         fi.setTitle("Cuentas por Cobrar");
     }
     
-    public static void Cargar(FrmCuentasPorCobrar fi, ArrayList<Cliente> lista) {
-        fi.cbxCliente.removeAllItems();
+    public static void Cargar(FrmRegistroPagos fi, ArrayList<Cliente> lista) {
+        fi.cbxidcuenta.removeAllItems();
         
         for (Cliente e : lista) {
-            fi.cbxCliente.addItem(e.getNombre());
+            fi.cbxidcuenta.addItem(e.getNombre());
         }
         
     }
     
-    public static void LimpiarEntradas(FrmCuentasPorCobrar fc) {
+    public static void LimpiarEntradas(FrmRegistroPagos fc) {
         // fc.txtIdcat.setText("");
         // fc.txtNomcat.setText("");
         // fc.txaDesc.setText("");
         // fc.txtIdcat.requestFocus();
     }//fin limpiar
 
-    public static CuentaPorCobrar LeerCuentaPorCobrar(FrmCuentasPorCobrar fc, ArrayList<Cliente> cl) {
+    public static CuentaPorCobrar LeerCuentaPorCobrar(FrmRegistroPagos fc, ArrayList<Cliente> cl) {
         CuentaPorCobrar cat = new CuentaPorCobrar();
         
-        cat.setIdCliente(cl.get(fc.cbxCliente.getSelectedIndex()).getIdCliente());
+        cat.setIdCliente(cl.get(fc.cbxidcuenta.getSelectedIndex()).getIdCliente());
         cat.setMonto(Double.parseDouble(fc.txtMonto.getText()));
-        cat.setFechaEmision(fc.txtFechaEmision.getText());
-        cat.setFechaVencimiento(fc.txtFechaVencimiento.getText());
+        cat.setFechaEmision(fc.txtFechaPago.getText());
+        cat.setFechaVencimiento(fc.txtMetodoPago.getText());
         cat.setEstado(fc.chActivo.isSelected() ? "ACTIVO" : "INACTIVO");
         
         return cat;
     }
     
-    public static void MostrarEnTabla(FrmCuentasPorCobrar fc,
+    public static void MostrarEnTabla(FrmRegistroPagos fc,
             ArrayList<CuentaPorCobrar> Lista) {
         String titulos[] = {"ID CLIENTE", "MONTO", "FECHA EMISION",
             "FECHA VENCIMIENTO", "ESTADO"};

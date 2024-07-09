@@ -34,7 +34,7 @@ public class HomeController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == homeView.btnCuentasPorCobrar) {
-            var addClient = new FrmCuentasPorCobrar();
+            var addClient = new FrmRegistroPagos();
             var contro = new CuentasPorCobrarControlador(addClient);
 
             homeView.jDesktopPane1.add(addClient);

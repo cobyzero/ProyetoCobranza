@@ -1,17 +1,12 @@
 package Vista;
 
-
-
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-/**
- *
- * @author Pool
- */
-public class PreguntasFrecuentes extends javax.swing.JInternalFrame {
+
+public class PreguntasFrecuentes  extends javax.swing.JInternalFrame {
 
      private JTextArea txtPreguntasRespuestas;
     private JButton btnAnterior;

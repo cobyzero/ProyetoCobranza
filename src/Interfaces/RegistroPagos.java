@@ -8,15 +8,15 @@ import Modelo.RegistroPago;
 import java.util.ArrayList;
 public interface RegistroPagos {
 
-    void AgregarRegistroPago(RegistroPagos registro);
+    public void AgregarRegistroPago(RegistroPago registro);
 
-    void ActualizarRegistroPago(RegistroPagos registro);
+    public void ActualizarRegistroPago(RegistroPago registro);
 
-    RegistroPagos BuscarRegistroPago(int idRegistro);
+    RegistroPago BuscarRegistroPago(int idRegistro);
 
-    void EliminarRegistroPago(int idRegistro);
+    public void EliminarRegistroPago(int idRegistro);
 
-    ArrayList<RegistroPagos> ListarRegistrosPago();
+    ArrayList<RegistroPago> ListarRegistrosPago();
 }
     
 

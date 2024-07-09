@@ -82,4 +82,8 @@ public class Pago {
                 + ", metodoPago='" + metodoPago + '\''
                 + '}';
     }
+
+    public String getFecha() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -37,6 +37,7 @@ public class HomeView extends javax.swing.JFrame {
         btnClientes = new javax.swing.JMenuItem();
         btnCuentasPorCobrar = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        btnHistorial = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,9 @@ public class HomeView extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        btnHistorial.setText("Historial");
+        jMenu1.add(btnHistorial);
 
         jMenuBar1.add(jMenu1);
 
@@ -148,6 +152,7 @@ public class HomeView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JMenuItem btnClientes;
     public javax.swing.JMenuItem btnCuentasPorCobrar;
+    public javax.swing.JMenuItem btnHistorial;
     public javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;

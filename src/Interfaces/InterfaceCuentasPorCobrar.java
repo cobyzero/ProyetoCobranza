@@ -23,5 +23,8 @@ public interface InterfaceCuentasPorCobrar {
 
     public ArrayList<CuentaPorCobrar> ListarCuentaPorCobrar();
     
+    public ArrayList<CuentaPorCobrar> FiltrarLista(double monto);
+
+    
     public boolean ExisteClienteConCuentaDeCobro(int idCliente);
 }

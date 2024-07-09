@@ -18,7 +18,7 @@ import java.util.ArrayList;
  *
  * @author Pool
  */
-public class ReportesPorCobrar extends javax.swing.JPanel implements ActionListener { 
+public class ReportesPorCobrar  extends javax.swing.JInternalFrame implements ActionListener { 
 
     /**
      * Creates new form ReportesPorCobrar

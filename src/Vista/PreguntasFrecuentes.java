@@ -6,7 +6,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PreguntasFrecuentes extends javax.swing.JFrame {
+public class PreguntasFrecuentes  extends javax.swing.JInternalFrame {
 
      private JTextArea txtPreguntasRespuestas;
     private JButton btnAnterior;

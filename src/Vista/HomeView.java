@@ -109,16 +109,16 @@ public class HomeView extends javax.swing.JFrame {
         agregarclientes.setVisible(true);
     }//GEN-LAST:event_btnClientesActionPerformed
 
-<<<<<<< HEAD
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         PreguntaFrecuentessss prgfre = new PreguntaFrecuentessss();
         prgfre.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-=======
+
     private void btnPreguntasFrecuentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreguntasFrecuentesActionPerformed
       
     }//GEN-LAST:event_btnPreguntasFrecuentesActionPerformed
->>>>>>> 4e2d3b4d923014d7353fba221dbccfc722060394
+
 
     /**
      * @param args the command line arguments

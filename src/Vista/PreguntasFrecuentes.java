@@ -5,10 +5,7 @@ import javax.swing.JTextArea;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-/**
- *
- * @author Pool
- */
+
 public class PreguntasFrecuentes extends javax.swing.JFrame {
 
      private JTextArea txtPreguntasRespuestas;

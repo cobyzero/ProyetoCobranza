@@ -27,6 +27,7 @@ public class HomeController implements ActionListener {
         homeView.btnClientes.addActionListener(this);
         homeView.btnCuentasPorCobrar.addActionListener(this);
         homeView.btnHistorial.addActionListener(this);
+        homeView.btnPreguntasFrecuentes.addActionListener(this);
     }
 
     @Override
@@ -50,6 +51,13 @@ public class HomeController implements ActionListener {
             var contro = new HistorialControlador(addClient);
 
             homeView.jDesktopPane1.add(addClient);
+        }
+        
+        if (e.getSource() == homeView.btnPreguntasFrecuentes) {
+            PreguntaFrecuentessss prgfre = new PreguntaFrecuentessss();
+            prgfre.setVisible(true);
+            homeView.jDesktopPane1.add(prgfre);
+
         }
     }
 
